@@ -11,15 +11,15 @@ namespace ShootingDice
             Player player1 = new Player();
             player1.Name = "Bob";
 
-            Player player2 = new Player();
-            player2.Name = "Sue";
+            CreativeSmackTalkingPlayer player2 = new CreativeSmackTalkingPlayer();
+            player2.Name = "SmackTalkSue";
 
             player2.Play(player1);
 
             Console.WriteLine("-------------------");
 
-            Player player3 = new Player();
-            player3.Name = "Wilma";
+            HumanPlayer player3 = new HumanPlayer();
+            player3.Name = "HumanHeath";
 
             player3.Play(player2);
 
@@ -28,12 +28,40 @@ namespace ShootingDice
             Player large = new LargeDicePlayer();
             large.Name = "Bigun Rollsalot";
 
-            player1.Play(large);
+            large.Play(player3);
+
+            Console.WriteLine("-------------------");
+           
+            Player smackerSam = new SmackTalkingPlayer("Your luck is whack and so are you.");
+            smackerSam.Name = "ShitTalk Samson";
+
+            smackerSam.Play(large);
+
+            Console.WriteLine("-------------------");
+            
+            SoreLoserPlayer player4 = new SoreLoserPlayer();
+            player4.Name = "Sore Lewis";
+
+            player4.Play(smackerSam);
+
+            Console.WriteLine("-------------------");
+            
+            SoreLoserUpperHalfPlayer player5 = new SoreLoserUpperHalfPlayer();
+            player4.Name = "UpperSoreLuther";
+
+            player5.Play(player4);
+
+            Console.WriteLine("-------------------");
+
+            OneHigherPlayer player6 = new OneHigherPlayer();
+            player6.Name = "HigherHank";
+
+            player6.Play(player5);
 
             Console.WriteLine("-------------------");
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+                player1, player2, player3, large, smackerSam, player4, player5, player6
             };
 
             PlayMany(players);
